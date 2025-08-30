@@ -12,18 +12,31 @@
     />
     <!-- tailwind cdn -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome cdn -->
+    <script
+      src="https://kit.fontawesome.com/e83a8aaf5b.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="bg-[#f4f5f7] h-[100vh]">
-    <div class="border-2 border-red-500 min-h-[50px]">
-      <div>
-        <img src="./assets/Group.png" alt="" />
-        <div>
-          <h2>$ <span>45000</span></h2>
+    <div
+      class="border-2 border-red-500 min-h-[50px] flex justify-between items-center max-w-lg"
+    >
+      <div class="flex">
+        <img src="./assets/Group.png" class="h-[50px]" alt="" />
+
+        <div class="ml-3">
+          <h2 class="font-bold">$ <span>45000</span></h2>
           <p>Available Balance</p>
         </div>
       </div>
 
-      <div><button class="btn">Default</button></div>
+      <div>
+        <button class="btn">
+          <i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i>Default
+        </button>
+      </div>
     </div>
   </body>
 </html>
