@@ -29,7 +29,7 @@
           <img src="./assets/Group.png" class="h-[50px]" alt="" />
 
           <div class="ml-3">
-            <h2 class="font-bold">$ <span>45000</span></h2>
+            <h2 class="font-bold">$ <span id="available-balance">45000</span></h2>
             <p class="text-[#08080880]">Available Balance</p>
           </div>
         </div>
@@ -95,7 +95,10 @@
         <form action="" class="bg-white rounded-2xl p-8">
           <div class="mb-3">
             <h1 class="font-semibold">Select A Bank</h1>
-            <select class="select bg-[#f4f5f7] mt-3 rounded-3xl w-full">
+            <select
+              id="bank"
+              class="select bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            >
               <option>Select Bank</option>
               <option>AB Bank</option>
               <option>Brac Bank</option>
@@ -106,6 +109,7 @@
             <label class="font-semibold" for="">Bank Account Number</label>
             <br />
             <input
+              id="account-number"
               type="text"
               placeholder="Enter 11 digit number"
               class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
@@ -115,6 +119,7 @@
             <label class="font-semibold" for="">Amount to Add</label>
             <br />
             <input
+              id="add-amount"
               type="text"
               placeholder="Add Amount to withdraw"
               class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
@@ -124,17 +129,22 @@
             <label class="font-semibold" for="">Pin Number</label>
             <br />
             <input
+              id="add-pin"
               type="text"
               placeholder="Enter you pin"
               class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
             />
           </div>
 
-          <button class="text-white btn bg-[#0874F2] mt-5 w-full rounded-3xl">
+          <button
+            class="text-white btn bg-[#0874F2] mt-5 w-full rounded-3xl"
+            id="add-money-btn"
+          >
             Add Money
           </button>
         </form>
       </div>
     </div>
+    <script src="home.js"></script>
   </body>
 </html>
