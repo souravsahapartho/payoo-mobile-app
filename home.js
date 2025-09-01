@@ -70,6 +70,11 @@ document.getElementById('add-money-btn').addEventListener('click', function (e) 
     const accountNumber = document.getElementById('account-number').value;
     const addAmount = getInputValueNumber('add-amount');
 
+    if (addAmount <= 0) {
+        alert("Invalid amount");
+        return;
+    }
+
     const pin = getInputValueNumber('add-pin');
 
     const availableBalance = getInnerText('available-balance');
@@ -106,6 +111,11 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
     const CashPin = getInputValueNumber('cash-pin');
 
     const availableBalance = getInnerText('available-balance');
+
+    if (amount <= 0 || amount > availableBalance) {
+        alert("Invalid amount");
+        return;
+    }
 
     if (agentNumber.length !== 11) {
         alert('Please provide 11 digit account number');
