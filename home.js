@@ -10,6 +10,7 @@ function getInputValueNumber(id) {
     return inputFieldValueNumber;
 }
 
+
 function getInputValue(id) {
     const inputField = document.getElementById(id);
     const inputFieldValue = inputField.innerText;
@@ -72,8 +73,8 @@ document.getElementById('add-money-btn').addEventListener('click', function (e) 
 
     const availableBalance = getInnerText('available-balance');
 
-    if (accountNumber.length < 11) {
-        alert('Please provide a valid account number');
+    if (accountNumber.length !== 11) {
+        alert('Please provide 11 digit account number');
         return;
     }
 
@@ -98,8 +99,8 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
 
     const availableBalance = getInnerText('available-balance');
 
-    if (agentNumber.length < 11) {
-        alert('Please provide a valid account number');
+    if (agentNumber.length !== 11) {
+        alert('Please provide 11 digit account number');
         return;
     }
 
@@ -112,6 +113,82 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
     setInnerText(totalNewAvailableBalance);
 
 })
+
+
+//transfer money feature
+document.getElementById('transfer-submit-btn').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const amount = getInputValueNumber('transfer-amount');
+    const accountNumber = document.getElementById('account1-number').value;
+    console.log(accountNumber);
+    const TransferPin = getInputValueNumber('transfer-pin');
+
+    const availableBalance = getInnerText('available-balance');
+
+    if (accountNumber.length !== 11) {
+        alert('Please provide 11 digit account number');
+        return;
+    }
+
+    if (TransferPin !== validPin) {
+        alert("Please provide correct pin");
+        return;
+    }
+
+    const totalNewAvailableBalance = availableBalance - amount;
+    setInnerText(totalNewAvailableBalance);
+})
+
+
+// pay bill feature
+document.getElementById('bill-pay-btn').addEventListener('click', function (e) {
+    e.preventDefault();
+    const biller = getInputValue('biller');
+    const billNumber = document.getElementById('bill-number').value;
+    const billAmount = getInputValueNumber('bill-amount');
+
+    const billPin = getInputValueNumber('bill-pin');
+
+    const availableBalance = getInnerText('available-balance');
+
+    if (billNumber.length > 8) {
+        alert('Please provide 8 digit bill number');
+        return;
+    }
+
+    if (billPin !== validPin) {
+        alert("Please provide correct pin");
+        return;
+    }
+
+    const totalNewAvailableBalance = availableBalance - billAmount;
+
+    setInnerText(totalNewAvailableBalance);
+})
+
+
+//Get Bonus feature
+document.getElementById('get-bonus-btn').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const coupon = getInputValue('coupon-number');
+    console.log(coupon);
+
+    let availableBalance = parseFloat(getInnerText('available-balance'));
+
+    if (coupon === 'PAYOOBONUS') {
+        const totalNewAvailableBalance = availableBalance + 1000;
+        setInnerText(totalNewAvailableBalance);
+    }
+
+
+    else {
+        alert("Please provide a valid coupon");
+        return;
+    }
+})
+
 
 
 
