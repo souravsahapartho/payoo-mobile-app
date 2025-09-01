@@ -189,6 +189,13 @@ document.getElementById('bill-pay-btn').addEventListener('click', function (e) {
     const totalNewAvailableBalance = availableBalance - billAmount;
 
     setInnerText(totalNewAvailableBalance);
+
+    const data = {
+        name: "Pay Bill",
+        date: new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data);
 })
 
 
@@ -211,6 +218,13 @@ document.getElementById('get-bonus-btn').addEventListener('click', function (e) 
         alert("Please provide a valid coupon");
         return;
     }
+
+    const data = {
+        name: "Coupon Bonus",
+        date: new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data);
 })
 
 
