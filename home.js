@@ -1,4 +1,5 @@
 const validPin = 1234;
+const transactionData = []
 
 //Shared Function
 //functions to get input values (Reusable Function)
@@ -13,7 +14,7 @@ function getInputValueNumber(id) {
 
 function getInputValue(id) {
     const inputField = document.getElementById(id);
-    const inputFieldValue = inputField.innerText;
+    const inputFieldValue = inputField.value;
     return inputFieldValue;
 }
 
@@ -86,6 +87,13 @@ document.getElementById('add-money-btn').addEventListener('click', function (e) 
     const totalNewAvailableBalance = addAmount + availableBalance;
 
     setInnerText(totalNewAvailableBalance);
+
+    const data = {
+        name: "Add Money",
+        date: new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data);
 })
 
 
@@ -112,7 +120,16 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
     const totalNewAvailableBalance = availableBalance - amount;
     setInnerText(totalNewAvailableBalance);
 
+    const data = {
+        name: "Cash Out",
+        date: new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data);
+
 })
+
+
 
 
 //transfer money feature
@@ -138,6 +155,13 @@ document.getElementById('transfer-submit-btn').addEventListener('click', functio
 
     const totalNewAvailableBalance = availableBalance - amount;
     setInnerText(totalNewAvailableBalance);
+
+    const data = {
+        name: "Transfer Money",
+        date: new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data);
 })
 
 
@@ -153,7 +177,7 @@ document.getElementById('bill-pay-btn').addEventListener('click', function (e) {
     const availableBalance = getInnerText('available-balance');
 
     if (billNumber.length > 8) {
-        alert('Please provide 8 digit bill number');
+        alert('Bill number cannot exceed 8 digits');
         return;
     }
 
@@ -177,7 +201,7 @@ document.getElementById('get-bonus-btn').addEventListener('click', function (e) 
 
     let availableBalance = parseFloat(getInnerText('available-balance'));
 
-    if (coupon === 'PAYOOBONUS') {
+    if (coupon === 'PAYOO') {
         const totalNewAvailableBalance = availableBalance + 1000;
         setInnerText(totalNewAvailableBalance);
     }
@@ -189,6 +213,31 @@ document.getElementById('get-bonus-btn').addEventListener('click', function (e) 
     }
 })
 
+
+//transactions feature
+document.getElementById('transactions-button').addEventListener('click', function () {
+    const transactionContainer = document.getElementById('transaction-container');
+    transactionContainer.innerText = "";
+
+    for (const data of transactionData) {
+        const div = document.createElement("div")
+        div.innerHTML = `
+            <div class="p-3 mt-3 bg-white rounded-xl flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-[#f4f5f7]">
+                        <img src="./assets/wallet1.png" class="mx-auto" alt="" />
+                    </div>
+                    <div class="ml-3">
+                        <h1>${data.name}</h1>
+                        <p>${data.date}</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>`
+
+        transactionContainer.appendChild(div);
+    }
+})
 
 
 
