@@ -59,7 +59,7 @@
       <div class="p-3 min-h-[200px] grid grid-cols-3 gap-4">
         <div
           id="add-button"
-          class="border-2 border-gray-300 text-center p-3 rounded-xl"
+          class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl"
         >
           <img src="./assets/wallet1.png" class="mx-auto" alt="" />
           <h2>Add Money</h2>
@@ -67,7 +67,7 @@
 
         <div
           id="cash-out-button"
-          class="border-2 border-gray-300 text-center p-3 rounded-xl"
+          class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl"
         >
           <img src="./assets/send1.png" class="mx-auto" alt="" />
           <h2>Cash Out</h2>
@@ -75,7 +75,7 @@
 
         <div
           id="transfer-button"
-          class="border-2 border-gray-300 text-center p-3 rounded-xl"
+          class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl"
         >
           <img src="./assets/money1.png" class="mx-auto" alt="" />
           <h2>Transfer Money</h2>
@@ -83,18 +83,23 @@
 
         <div
           id="bonus-button"
-          class="border-2 border-gray-300 text-center p-3 rounded-xl"
+          class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl"
         >
           <img src="./assets/bonus1.png" class="mx-auto" alt="" />
           <h2>Get Bonus</h2>
         </div>
 
-        <div class="border-2 border-gray-300 text-center p-3 rounded-xl">
+        <div
+          id="bill-button"
+          class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl"
+        >
           <img src="./assets/purse1.png" class="mx-auto" alt="" />
           <h2>Pay Bill</h2>
         </div>
 
-        <div class="border-2 border-gray-300 text-center p-3 rounded-xl">
+        <div id="transactions-button"
+          class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl"
+        >
           <img src="./assets/transaction1.png" class="mx-auto" alt="" />
           <h2>Transactions</h2>
         </div>
@@ -211,6 +216,16 @@
       <!-- Get Bonus Section -->
       <div class="form" id="get-bonus-parent" style="display: none">
         <h1 class="my-5 font-bold">Get Bonus</h1>
+      </div>
+
+      <!-- Pay Bill Section -->
+      <div class="form" id="pay-bill-parent" style="display: none">
+        <h1 class="my-5 font-bold">Pay Bill</h1>
+      </div>
+
+      <!-- Transactions Section -->
+      <div class="form" id="transactions-parent" style="display: none">
+        <h1 class="my-5 font-bold">Transactions</h1>
       </div>
     </div>
     <script src="home.js"></script>
